@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Rrs.Logging.NLog Class Library</Description>
+    <Authors>Robert Snipe</Authors>
+    <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
+    <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
+    <AssemblyName>Rrs.Logging.NLog</AssemblyName>
+    <PackageId>Rrs.Logging.NLog</PackageId>
+    <PackageTags>Logging;NLog;Net40</PackageTags>
+    <PackageProjectUrl>https://github.com/rrs/Logging</PackageProjectUrl>
+    <Version>1.0.0</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Company>rrs</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rrs.Logging\Rrs.Logging.csproj" />
+  </ItemGroup>
+
+</Project>
