@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Rrs.Logging
 {
     public class LoggerAggregate : ILogger
     {
-        private readonly IEnumerable<ILogger> _loggers;
+        private IEnumerable<ILogger> _loggers;
 
         public LoggerAggregate(IEnumerable<ILogger> loggers)
         {
             _loggers = loggers;
+        }
+
+        public void DetachLoggers()
+        {
+            _loggers = Enumerable.Empty<ILogger>();
         }
 
         public void Log(string message)

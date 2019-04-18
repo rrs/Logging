@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging", "Rrs.Logging\Rrs.Logging.csproj", "{1CE3B225-2E03-4EE0-8806-D04604F95B20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Logging.NLog", "Rrs.Logging.NLog\Rrs.Logging.NLog.csproj", "{2BBB6F8A-9230-4B67-A67E-A486B0D39199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.NLog", "Rrs.Logging.NLog\Rrs.Logging.NLog.csproj", "{2BBB6F8A-9230-4B67-A67E-A486B0D39199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Logging.SqlServer", "Rrs.Logging.SqlServer\Rrs.Logging.SqlServer.csproj", "{911A30A6-05A8-46FE-950A-278D37EC568D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.SqlServer", "Rrs.Logging.SqlServer\Rrs.Logging.SqlServer.csproj", "{911A30A6-05A8-46FE-950A-278D37EC568D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21AEA161-A5CB-4FC3-AD77-2A051B07B43E}"
 	ProjectSection(SolutionItems) = preProject
