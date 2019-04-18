@@ -54,7 +54,6 @@ namespace Rrs.Logging.SqlServer
                 }
                 _lastException = e;
                 if (token.IsCancellationRequested) return;
-                EnsureLogTableAvailable();
                 // prune excess
                 while (_queue.Count > 1000 && _queue.TryDequeue(out var byeBye));
                 Schedule.In(_pulseWorker.Pulse, TimeSpan.FromMinutes(1));
@@ -69,9 +68,9 @@ namespace Rrs.Logging.SqlServer
                 {
                     _db.Execute(_queries.EnsureLogTableExists);
                 }
-                catch
+                catch(Exception e)
                 {
-                    _logger?.Log($"Failed to create log table '{_logTable}'");
+                    _logger?.Log(e, $"Failed to create log table '{_logTable}'");
                 }
             });
         }
