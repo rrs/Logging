@@ -56,7 +56,7 @@ namespace Rrs.Logging.SqlServer
                 if (token.IsCancellationRequested) return;
                 EnsureLogTableAvailable();
                 // prune excess
-                while (_queue.Count > 1000 && _queue.TryDequeue(out var byeBye)) ;
+                while (_queue.Count > 1000 && _queue.TryDequeue(out var byeBye));
                 Schedule.In(_pulseWorker.Pulse, TimeSpan.FromMinutes(1));
             }
         }

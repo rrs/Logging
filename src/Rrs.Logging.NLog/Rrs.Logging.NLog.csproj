@@ -15,6 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NLog" Version="4.6.2" />
   </ItemGroup>
 

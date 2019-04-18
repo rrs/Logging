@@ -30,13 +30,43 @@ namespace Rrs.Logging.SqlServer
 
         public LogEntry CreateLogEntry(Guid softwareId)
         {
+            if (Message != null && Object != null)
+            {
+                return new LogEntry
+                {
+                    SoftwareId = softwareId,
+                    Level = Level,
+                    Object = JsonConvert.SerializeObject(new MessageAndObjectLog(Message, Object)),
+                    ObjectType = typeof(MessageAndObjectLog).FullName
+                };
+            }
+            if (Message != null)
+            {
+                return new LogEntry
+                {
+                    SoftwareId = softwareId,
+                    Level = Level,
+                    Object = Message,
+                    ObjectType = typeof(string).FullName
+                };
+            }
+            if (Object != null)
+            {
+                return new LogEntry
+                {
+                    SoftwareId = softwareId,
+                    Level = Level,
+                    Object = Object == null ? null : JsonConvert.SerializeObject(Object),
+                    ObjectType = Object?.GetType().FullName
+                };
+            }
+
             return new LogEntry
             {
                 SoftwareId = softwareId,
                 Level = Level,
-                Message = Message,
-                Object = Object == null ? null : JsonConvert.SerializeObject(Object),
-                ObjectType = Object?.GetType().FullName
+                Object = "Empty Log Entry",
+                ObjectType = typeof(string).FullName
             };
         }
     }

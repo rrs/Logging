@@ -17,7 +17,7 @@ namespace Rrs.Logging.SqlServer
         public void Create(IDbConnection c, LogEntry log)
         {
             var command = $@"
-insert into {_logTable} (SoftwareId, Level, Message, Object, ObjectType, Created) values (@SoftwareId, @Level, @Message, @Object, @ObjectType, getdate())
+insert into {_logTable} (SoftwareId, Level, Object, ObjectType, Created) values (@SoftwareId, @Level, @Object, @ObjectType, getdate())
 
 delete from {_logTable}
 where Id in (
@@ -51,7 +51,6 @@ begin
 	    Id int identity,
         SoftwareId uniqueidentifier not null,
         Level int not null,
-        Message nvarchar(max) null,
 	    Object nvarchar(max) null,
         ObjectType nvarchar(250) null,
 	    Created datetime not null,
