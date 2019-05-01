@@ -6,6 +6,12 @@ namespace Rrs.Logging.NLog
     public class NLogLogger : ILogger
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private readonly ILogObjectSerializer _serializer;
+
+        public NLogLogger(ILogObjectSerializer serializer)
+        {
+            _serializer = serializer;
+        }
 
         public void Log(string message)
         {
@@ -24,13 +30,13 @@ namespace Rrs.Logging.NLog
 
         public void Log(object o)
         {
-            Logger.Info(o);
+            Logger.Info(_serializer.Serialize(o));
         }
 
         public void Log(object o, string message)
         {
             Logger.Info(message);
-            Logger.Info(o);
+            Logger.Info(_serializer.Serialize(o));
         }
     }
 }

@@ -1,28 +1,31 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace Rrs.Logging.SqlServer
 {
     public class PendingLog : IPendingLog
     {
+        private readonly ILogObjectSerializer _serializer;
         public RrsLogLevel Level { get; }
         public string Message { get; }
         public object Object { get; }
 
-        public PendingLog(RrsLogLevel level, string message)
+        public PendingLog(ILogObjectSerializer serializer, RrsLogLevel level, string message)
         {
+            _serializer = serializer;
             Level = level;
             Message = message;
         }
 
-        public PendingLog(RrsLogLevel level, object @object)
+        public PendingLog(ILogObjectSerializer serializer, RrsLogLevel level, object @object)
         {
+            _serializer = serializer;
             Level = level;
             Object = @object;
         }
 
-        public PendingLog(RrsLogLevel level, string message, object @object)
+        public PendingLog(ILogObjectSerializer serializer, RrsLogLevel level, string message, object @object)
         {
+            _serializer = serializer;
             Level = level;
             Message = message;
             Object = @object;
@@ -36,7 +39,7 @@ namespace Rrs.Logging.SqlServer
                 {
                     SoftwareId = softwareId,
                     Level = Level,
-                    Object = JsonConvert.SerializeObject(new MessageAndObjectLog(Message, Object)),
+                    Object = _serializer.Serialize(new MessageAndObjectLog(Message, Object)),
                     ObjectType = typeof(MessageAndObjectLog).FullName
                 };
             }
@@ -56,7 +59,7 @@ namespace Rrs.Logging.SqlServer
                 {
                     SoftwareId = softwareId,
                     Level = Level,
-                    Object = Object == null ? null : JsonConvert.SerializeObject(Object),
+                    Object = Object == null ? null : _serializer.Serialize(Object),
                     ObjectType = Object?.GetType().FullName
                 };
             }

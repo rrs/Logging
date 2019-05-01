@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Rrs.Logging.SqlServer Class Library</Description>
+    <Description>Rrs.Logging.Json Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
     <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
-    <AssemblyName>Rrs.Logging.SqlServer</AssemblyName>
-    <PackageId>Rrs.Logging.SqlServer</PackageId>
-    <PackageTags>Logging;SqlServer;Net40</PackageTags>
+    <AssemblyName>Rrs.Logging.Json</AssemblyName>
+    <PackageId>Rrs.Logging.Json</PackageId>
+    <PackageTags>Logging;Json;Net40</PackageTags>
     <PackageProjectUrl>https://github.com/rrs/Logging</PackageProjectUrl>
     <Version>1.0.0</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -15,9 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rrs.Dapper.Fluent" Version="1.0.2" />
-    <PackageReference Include="Rrs.Data" Version="1.0.13" />
-    <PackageReference Include="Rrs.Tasks" Version="1.0.21" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>
