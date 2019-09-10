@@ -19,8 +19,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Rrs.Dapper.Fluent" Version="1.1.12" />
-    <PackageReference Include="Rrs.Data" Version="1.1.46" />
+    <PackageReference Include="Rrs.Dapper.Fluent" Version="1.1.14" />
+    <PackageReference Include="Rrs.Data" Version="1.1.49" />
     <PackageReference Include="Rrs.Tasks" Version="1.0.23" />
   </ItemGroup>
 
