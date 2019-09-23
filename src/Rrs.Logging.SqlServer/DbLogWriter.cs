@@ -14,7 +14,6 @@ namespace Rrs.Logging.SqlServer
         private readonly Guid _softwareId;
         private readonly IDbDelegator _db;
         private readonly ILogger _logger;
-        private readonly string _logTable;
 
         private readonly PulseWorker _pulseWorker;
         private readonly LoggerQueries _queries;
@@ -26,11 +25,9 @@ namespace Rrs.Logging.SqlServer
             _serializer = serializer;
             _softwareId = softwareId;
             _db = db;
-            _logTable = logTable;
             _logger = logger;
             _pulseWorker = new PulseWorker(t => FlushLog(t));
             _queries = new LoggerQueries(logTable, maxLogEntries);
-            EnsureLogTableAvailable();
         }
 
         private Exception _lastException;
@@ -60,21 +57,6 @@ namespace Rrs.Logging.SqlServer
                 while (_queue.Count > 1000 && _queue.TryDequeue(out var byeBye));
                 Schedule.In(_pulseWorker.Pulse, TimeSpan.FromMinutes(1));
             }
-        }
-
-        private void EnsureLogTableAvailable()
-        {
-            Task.Factory.StartNew(() =>
-            {
-                try
-                {
-                    _db.Execute(_queries.EnsureLogTableExists);
-                }
-                catch(Exception e)
-                {
-                    _logger?.Log(e, $"Failed to create log table '{_logTable}'");
-                }
-            });
         }
 
         public void Log(IPendingLog log)
