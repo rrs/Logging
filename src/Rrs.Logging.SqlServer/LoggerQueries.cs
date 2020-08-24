@@ -16,7 +16,10 @@ namespace Rrs.Logging.SqlServer
 
         public void Create(IDbConnection c, LogEntry log)
         {
-            var command = $@"
+	        if (log.ObjectType.Length > 250) 
+		        log.ObjectType = log.ObjectType.Substring(0, 249);
+
+	        var command = $@"
 insert into {_logTable} (SoftwareId, Level, Object, ObjectType, Created) values (@SoftwareId, @Level, @Object, @ObjectType, getdate())
 
 delete from {_logTable}
