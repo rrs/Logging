@@ -16,7 +16,7 @@ namespace Rrs.Logging.SqlServer
 
         public DbLogger(ILogObjectSerializer serializer, Guid softwareId, IDbDelegator db, ILogger logger = null) : this(serializer, new DbLogWriter(serializer, softwareId, db, logger)) { }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _logWriter.Dispose();
         }

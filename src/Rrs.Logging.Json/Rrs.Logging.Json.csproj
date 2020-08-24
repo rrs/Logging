@@ -2,14 +2,10 @@
 
   <PropertyGroup>
     <Version>1.0.0.0</Version>
-    <PackageVersion>1.0.0.0</PackageVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <InformationalVersion>1.0.0.0</InformationalVersion>
     <Description>Rrs.Logging.Json Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.0;net40;net461</TargetFrameworks>
     <AssemblyName>Rrs.Logging.Json</AssemblyName>
     <PackageId>Rrs.Logging.Json</PackageId>
     <PackageTags>Logging;Json;Net40</PackageTags>
@@ -21,7 +17,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 

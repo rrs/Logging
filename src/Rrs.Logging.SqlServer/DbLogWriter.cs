@@ -65,7 +65,7 @@ namespace Rrs.Logging.SqlServer
             _pulseWorker.Pulse();
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _pulseWorker.Dispose();
         }
