@@ -5,7 +5,7 @@
     <Description>Rrs.Logging.Yaml Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.0;net40;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net40;net461</TargetFrameworks>
     <AssemblyName>Rrs.Logging.Yaml</AssemblyName>
     <PackageId>Rrs.Logging.Yaml</PackageId>
     <PackageTags>Logging;Yaml;Net40</PackageTags>
@@ -17,7 +17,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp2.0'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
    

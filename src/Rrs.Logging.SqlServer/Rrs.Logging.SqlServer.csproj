@@ -5,7 +5,7 @@
     <Description>Rrs.Logging.SqlServer Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.0;net40;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net40;net461</TargetFrameworks>
     <AssemblyName>Rrs.Logging.SqlServer</AssemblyName>
     <PackageId>Rrs.Logging.SqlServer</PackageId>
     <PackageTags>Logging;SqlServer;Net40</PackageTags>
@@ -17,14 +17,14 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp2.0'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Rrs.Dapper.Fluent" Version="1.1.17" />
-    <PackageReference Include="Rrs.Data" Version="1.2.60" />
+    <PackageReference Include="Rrs.Data" Version="1.3.63" />
     <PackageReference Include="Rrs.Tasks" Version="1.1.25" />
   </ItemGroup>
 
