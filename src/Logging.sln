@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging", "Rrs.Logging\Rrs.Logging.csproj", "{1CE3B225-2E03-4EE0-8806-D04604F95B20}"
 EndProject
@@ -12,12 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21AEA161-A5CB-4FC3-AD77-2A051B07B43E}"
 	ProjectSection(SolutionItems) = preProject
 		..\CHANGELOG.md = ..\CHANGELOG.md
+		Directory.Build.props = Directory.Build.props
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Logging.Json", "Rrs.Logging.Json\Rrs.Logging.Json.csproj", "{E8A88FA3-CCD0-408C-88A3-454AC2B3F30C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.Json", "Rrs.Logging.Json\Rrs.Logging.Json.csproj", "{E8A88FA3-CCD0-408C-88A3-454AC2B3F30C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Logging.Yaml", "Rrs.Logging.Yaml\Rrs.Logging.Yaml.csproj", "{D6A0AE43-6149-4EFA-9E25-99627901192C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.Yaml", "Rrs.Logging.Yaml\Rrs.Logging.Yaml.csproj", "{D6A0AE43-6149-4EFA-9E25-99627901192C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
