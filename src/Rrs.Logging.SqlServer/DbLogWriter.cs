@@ -20,14 +20,14 @@ namespace Rrs.Logging.SqlServer
 
         private readonly ConcurrentQueue<IPendingLog> _queue = new ConcurrentQueue<IPendingLog>();
 
-        public DbLogWriter(ILogObjectSerializer serializer, Guid softwareId, IDbDelegator db, ILogger logger = null, string logTable = "Log", int maxLogEntries = 100_000)
+        public DbLogWriter(ILogObjectSerializer serializer, Guid softwareId, IDbDelegator db, ILogger logger = null, string logTable = "Log", int maxLogEntries = 50_000, int retentionDays = 30, double tolerance = 0.05)
         {
             _serializer = serializer;
             _softwareId = softwareId;
             _db = db;
             _logger = logger;
             _pulseWorker = new PulseWorker(t => FlushLog(t));
-            _queries = new LoggerQueries(logTable, maxLogEntries);
+            _queries = new LoggerQueries(logTable, maxLogEntries, retentionDays, tolerance < 1 ? tolerance + 1 : tolerance);
         }
 
         private Exception _lastException;
