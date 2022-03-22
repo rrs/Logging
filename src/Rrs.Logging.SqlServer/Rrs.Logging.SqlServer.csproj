@@ -4,7 +4,6 @@
     <Description>Rrs.Logging.SqlServer Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net452</TargetFrameworks>
     <AssemblyName>Rrs.Logging.SqlServer</AssemblyName>
     <PackageId>Rrs.Logging.SqlServer</PackageId>
     <PackageTags>Logging;SqlServer;net452</PackageTags>
@@ -22,13 +21,9 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Rrs.Dapper.Fluent" Version="2.1.0" />
+    <PackageReference Include="Rrs.Dapper.Fluent" Version="1.1.17" />
     <PackageReference Include="Rrs.Data" Version="2.0.0" />
-    <PackageReference Include="Rrs.Tasks" Version="2.2.4" />
+    <PackageReference Include="Rrs.Tasks" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
