@@ -1,13 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Rrs.Logging.Json Class Library</Description>
+    <Description>Rrs.Logging.Yaml Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net452</TargetFrameworks>
-    <AssemblyName>Rrs.Logging.Json</AssemblyName>
-    <PackageId>Rrs.Logging.Json</PackageId>
-    <PackageTags>Logging;Json;net452</PackageTags>
+    <AssemblyName>Rrs.Logging.Yaml</AssemblyName>
+    <PackageId>Rrs.Logging.Yaml</PackageId>
+    <PackageTags>Logging;Yaml;net452</PackageTags>
     <PackageProjectUrl>https://github.com/rrs/Logging</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Company>rrs</Company>
@@ -19,14 +18,9 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net452' or '$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
-
-
+   
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="YamlDotNet" Version="9.1.4" />
   </ItemGroup>
 
   <ItemGroup>

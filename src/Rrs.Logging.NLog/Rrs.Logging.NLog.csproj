@@ -4,6 +4,7 @@
     <Description>Rrs.Logging.NLog Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
+    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net452</TargetFrameworks>
     <AssemblyName>Rrs.Logging.NLog</AssemblyName>
     <PackageId>Rrs.Logging.NLog</PackageId>
     <PackageTags>Logging;NLog;net452</PackageTags>
@@ -29,7 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NLog" Version="4.7.7" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NLog" Version="4.7.14" />
   </ItemGroup>
 
   <ItemGroup>
