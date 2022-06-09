@@ -4,7 +4,6 @@
     <Description>Rrs.Logging.SqlServer Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
-    <TargetFrameworks>netstandard2.0;netcoreapp2.1;net452</TargetFrameworks>
     <AssemblyName>Rrs.Logging.SqlServer</AssemblyName>
     <PackageId>Rrs.Logging.SqlServer</PackageId>
     <PackageTags>Logging;SqlServer;net452</PackageTags>
