@@ -1,7 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+      <LangVersion>10</LangVersion>
+      <TargetFrameworks>net5.0</TargetFrameworks>
+      <Description>Rrs.Logging.Microsoft Class Library</Description>
+      <Authors>Robert Snipe</Authors>
+      <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
+      <AssemblyName>Rrs.Logging.Microsoft</AssemblyName>
+      <PackageId>Rrs.Logging.Microsoft</PackageId>
+      <PackageTags>Logging;Microsoft</PackageTags>
+      <PackageProjectUrl>https://github.com/rrs/Logging</PackageProjectUrl>
+      <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+      <Company>rrs</Company>
+      <PublishRepositoryUrl>true</PublishRepositoryUrl>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
