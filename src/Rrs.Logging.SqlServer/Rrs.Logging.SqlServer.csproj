@@ -27,7 +27,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Rrs.Dapper.Fluent" Version="2.1.0" />
-    <PackageReference Include="Rrs.Data" Version="2.5.0" />
+    <PackageReference Include="Rrs.Data" Version="2.6.0" />
     <PackageReference Include="Rrs.Tasks" Version="2.3.4" />
   </ItemGroup>
 

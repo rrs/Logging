@@ -1,5 +1,6 @@
 ﻿using Rrs.Dapper.Fluent;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Rrs.Logging.SqlServer
 {
@@ -18,7 +19,7 @@ namespace Rrs.Logging.SqlServer
             _tolerance = tolerance;
         }
 
-        public void Create(IDbConnection c, LogEntry log)
+        public Task Create(IDbConnection c, LogEntry log)
         {
 	        if (log.ObjectType.Length > 250) 
 		        log.ObjectType = log.ObjectType.Substring(0, 249);
@@ -54,7 +55,7 @@ if (select count(*) from {_logTable} where  SoftwareId = @SoftwareId) > {_maxEnt
 if ident_current('{_logTable}') > 1000000000
 	dbcc checkident('{_logTable}', RESEED, 0)
 ";
-            c.Sql(command).Parameters(log).Execute();
+            return c.Sql(command).Parameters(log).ExecuteAsync();
         }
 
         public void EnsureLogTableExists(IDbConnection c)
