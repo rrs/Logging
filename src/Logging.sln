@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.Json", "Rrs.Log
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Logging.Yaml", "Rrs.Logging.Yaml\Rrs.Logging.Yaml.csproj", "{D6A0AE43-6149-4EFA-9E25-99627901192C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Rrs.Logging.Json", "Tests.Rrs.Logging.Json\Tests.Rrs.Logging.Json.csproj", "{E68C0097-B6DC-449A-B203-8493FCF00CE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Rrs.Logging.Json", "Tests.Rrs.Logging.Json\Tests.Rrs.Logging.Json.csproj", "{E68C0097-B6DC-449A-B203-8493FCF00CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Logging.Microsoft", "Rrs.Logging.Microsoft\Rrs.Logging.Microsoft.csproj", "{D32007F0-CACC-4CE3-A45A-9FA9F43FCD44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{E68C0097-B6DC-449A-B203-8493FCF00CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E68C0097-B6DC-449A-B203-8493FCF00CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E68C0097-B6DC-449A-B203-8493FCF00CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32007F0-CACC-4CE3-A45A-9FA9F43FCD44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32007F0-CACC-4CE3-A45A-9FA9F43FCD44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32007F0-CACC-4CE3-A45A-9FA9F43FCD44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32007F0-CACC-4CE3-A45A-9FA9F43FCD44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

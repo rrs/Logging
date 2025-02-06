@@ -1,5 +1,7 @@
 ﻿using Rrs.Dapper.Fluent;
+using System;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Rrs.Logging.SqlServer
 {
@@ -9,6 +11,9 @@ namespace Rrs.Logging.SqlServer
         private readonly int _maxEntries;
         private readonly int _retentionDays;
         private readonly double _tolerance;
+        private readonly string _insertCommand;
+        private readonly string _deleteCommand;
+        private readonly string _existsCommand;
 
         public LoggerQueries(string logTable, int maxEntries, int retentionDays, double tolerance)
         {
@@ -16,20 +21,14 @@ namespace Rrs.Logging.SqlServer
             _maxEntries = maxEntries;
             _retentionDays = retentionDays;
             _tolerance = tolerance;
-        }
 
-        public void Create(IDbConnection c, LogEntry log)
-        {
-	        if (log.ObjectType.Length > 250) 
-		        log.ObjectType = log.ObjectType.Substring(0, 249);
-
-			// check entries over max entries + tolerance percentage
-			// delete by date to number of retention days
-			// check max entries again in case all the logs are within that retention period
-			// delete by max entries
-	        var command = $@"
-insert into {_logTable} (SoftwareId, Level, Object, ObjectType, Created) values (@SoftwareId, @Level, @Object, @ObjectType, getdate())
-
+            _insertCommand = $"insert into {_logTable} (SoftwareId, Level, Object, ObjectType, Created) values (@SoftwareId, @Level, @Object, @ObjectType, getdate())";
+            
+            // check entries over max entries + tolerance percentage
+            // delete by date to number of retention days
+            // check max entries again in case all the logs are within that retention period
+            // delete by max entries
+            _deleteCommand = $@"
 if (select min(Created) from {_logTable} where SoftwareId = @SoftwareId) < dateadd(day, -{_retentionDays}*{_tolerance}, getdate())
 	delete from {_logTable}
 	where	SoftwareId = @SoftwareId and 
@@ -54,12 +53,8 @@ if (select count(*) from {_logTable} where  SoftwareId = @SoftwareId) > {_maxEnt
 if ident_current('{_logTable}') > 1000000000
 	dbcc checkident('{_logTable}', RESEED, 0)
 ";
-            c.Sql(command).Parameters(log).Execute();
-        }
 
-        public void EnsureLogTableExists(IDbConnection c)
-        {
-            var command = $@"
+            _existsCommand = $@"
 if (select object_id('{_logTable}')) is null
 begin
     create table {_logTable}
@@ -77,10 +72,18 @@ begin
     create index IX_{_logTable}_SLC on Log (SoftwareId, Level, Created)
 end
 ";
-            c.Sql(command).Execute();
         }
 
+        public Task Delete(IDbConnection c, Guid softwareId) => c.Sql(_deleteCommand).Parameters(new { softwareId }).Timeout(0).ExecuteAsync();
 
+        public Task Create(IDbConnection c, LogEntry log)
+        {
+	        if (log.ObjectType.Length > 250) 
+		        log.ObjectType = log.ObjectType.Substring(0, 249);
 
+            return c.Sql(_insertCommand).Parameters(log).ExecuteAsync();
+        }
+
+        public void EnsureLogTableExists(IDbConnection c) => c.Sql(_existsCommand).Execute();
     }
 }

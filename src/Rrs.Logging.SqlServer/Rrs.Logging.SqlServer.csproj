@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net462;net5.0</TargetFrameworks>
+    <TargetFrameworks>net462;net8.0</TargetFrameworks>
     <Description>Rrs.Logging.SqlServer Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
@@ -27,8 +27,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Rrs.Dapper.Fluent" Version="2.1.0" />
-    <PackageReference Include="Rrs.Data" Version="2.0.0" />
-    <PackageReference Include="Rrs.Tasks" Version="2.2.4" />
+    <PackageReference Include="Rrs.Data" Version="2.6.0" />
+    <PackageReference Include="Rrs.Tasks" Version="2.3.4" />
   </ItemGroup>
 
   <ItemGroup>

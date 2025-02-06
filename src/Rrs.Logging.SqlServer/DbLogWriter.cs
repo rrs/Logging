@@ -32,7 +32,7 @@ namespace Rrs.Logging.SqlServer
 
         private Exception _lastException;
 
-        private void FlushLog(CancellationToken token)
+        private async Task FlushLog(CancellationToken token)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace Rrs.Logging.SqlServer
                 {
                     if (token.IsCancellationRequested) return;
 
-                    _db.Execute(_queries.Create, log.CreateLogEntry(_softwareId));
+                    await _db.Execute(_queries.Create, log.CreateLogEntry(_softwareId));
                     _queue.TryDequeue(out var _);
                 }
             }
@@ -55,7 +55,7 @@ namespace Rrs.Logging.SqlServer
                 if (token.IsCancellationRequested) return;
                 // prune excess
                 while (_queue.Count > 1000 && _queue.TryDequeue(out var byeBye));
-                Schedule.In(_pulseWorker.Pulse, TimeSpan.FromMinutes(1), token);
+                _ = Schedule.In(_pulseWorker.Pulse, TimeSpan.FromMinutes(1), token);
             }
         }
 
