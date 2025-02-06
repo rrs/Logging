@@ -2,7 +2,7 @@
 
   <PropertyGroup>
       <LangVersion>10</LangVersion>
-      <TargetFrameworks>net5.0</TargetFrameworks>
+      <TargetFrameworks>net8.0</TargetFrameworks>
       <Description>Rrs.Logging.Microsoft Class Library</Description>
       <Authors>Robert Snipe</Authors>
       <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
