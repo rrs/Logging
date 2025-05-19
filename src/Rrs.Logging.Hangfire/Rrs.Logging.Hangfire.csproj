@@ -5,6 +5,18 @@
     <TargetFrameworks>net462;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>Rrs.Logging.Hangfire Class Library</Description>
+    <Authors>Robert Snipe</Authors>
+    <Copyright>Copyright (c) 2019 Robert Snipe</Copyright>
+    <AssemblyName>Rrs.Logging.Hangfire</AssemblyName>
+    <PackageId>Rrs.Logging.Hangfire</PackageId>
+    <PackageTags>Logging;Hangfire;net462;net8.0</PackageTags>
+    <PackageProjectUrl>https://github.com/rrs/Logging</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Company>rrs</Company>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
